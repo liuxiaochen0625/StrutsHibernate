@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 指定连接数据库所用的驱动 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 指定连接数据库的url，hibernate是连接的数据库名 -->
+		<property name="connection.url">jdbc:mysql://localhost:3306/struts2</property>
+		<!-- 指定连接数据库的用户名 -->
+		<property name="connection.username">root</property>
+		<!-- 指定连接数据库的密码 -->
+		<property name="connection.password">mysql</property>
+		<!-- 使用C3P0连接池，指定连接池的相关配置信息 -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.validate">true</property>
+		<!-- 指定数据库方言 -->
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<!-- 根据需要自动创建数据库 -->
+		<property name="hbm2ddl.auto">update</property>
+		<!-- 指定根据当前线程来界定上下文相关Session -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- 罗列所有的持久化实体类-->
+		<mapping class="demo.domain.Person"/>
+		<mapping class="demo.domain.Son"/>
+	</session-factory>
+</hibernate-configuration>
